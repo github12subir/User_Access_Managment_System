@@ -23,25 +23,25 @@ public class LoginServlet extends javax.servlet.http.HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-        // Validate the input (you can add further validation if needed)
+
         if (username == null || password == null) {
             response.sendRedirect("login.jsp?error=Invalid%20username%20or%20password");
             return;
         }
 
         try (Connection connection = DatabaseConnection.getConnection()) {
-            // Query to get user details by username
+
             String query = "SELECT * FROM users WHERE username = ?";
             try (PreparedStatement stmt = connection.prepareStatement(query)) {
                 stmt.setString(1, username);
                 ResultSet rs = stmt.executeQuery();
 
                 if (rs.next()) {
-                    // User exists, now check the password
+
                     String storedPassword = rs.getString("password");
                     String role = rs.getString("role");
 
-                    // Check if the password matches (using bcrypt)
+
                     if (BCrypt.checkpw(password, storedPassword)) {
                         // Password is correct, set session and redirect based on role
                         request.getSession().setAttribute("username", username);
@@ -55,11 +55,11 @@ public class LoginServlet extends javax.servlet.http.HttpServlet {
                             response.sendRedirect("requestAccess.jsp");
                         }
                     } else {
-                        // Password is incorrect
+
                         response.sendRedirect("login.jsp?error=Invalid%20username%20or%20password");
                     }
                 } else {
-                    // No user found with the given username
+
                     response.sendRedirect("login.jsp?error=Invalid%20username%20or%20password");
                 }
             }

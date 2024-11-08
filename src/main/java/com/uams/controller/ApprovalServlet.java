@@ -9,7 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-@WebServlet("/ApprovalServlet")  // Maps to "/ApprovalServlet" URL
+@WebServlet("/ApprovalServlet")
 public class ApprovalServlet extends javax.servlet.http.HttpServlet {
 
     @Override
@@ -17,7 +17,7 @@ public class ApprovalServlet extends javax.servlet.http.HttpServlet {
             throws ServletException, IOException {
 
         int requestId = Integer.parseInt(request.getParameter("requestId"));
-        String action = request.getParameter("action");  // "approve" or "reject"
+        String action = request.getParameter("action");
 
         String status = "Rejected";
         if ("approve".equalsIgnoreCase(action)) {

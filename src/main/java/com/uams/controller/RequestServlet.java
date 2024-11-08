@@ -30,7 +30,7 @@ public class RequestServlet extends javax.servlet.http.HttpServlet {
         String accessType = request.getParameter("accessType");
         String reason = request.getParameter("reason");
 
-        // Prepare SQL query to insert the access request
+
         String query = "INSERT INTO requests (user_id, software_id, access_type, reason, status) VALUES (?, ?, ?, ?, ?)";
 
         try (Connection connection = DatabaseConnection.getConnection()) {
@@ -43,7 +43,7 @@ public class RequestServlet extends javax.servlet.http.HttpServlet {
                 stmt.executeUpdate();
 
                 // Redirect to a confirmation page or back to the dashboard
-                response.sendRedirect("requestSuccess.jsp");  // You can customize this as needed
+                response.sendRedirect("requestSuccess.jsp");
             }
         } catch (SQLException e) {
             e.printStackTrace();

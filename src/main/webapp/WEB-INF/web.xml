@@ -7,21 +7,21 @@
 
   <!-- Welcome file list -->
   <welcome-file-list>
-    <welcome-file>home.jsp</welcome-file> <!-- Set your homepage here -->
+    <welcome-file>home.jsp</welcome-file>
   </welcome-file-list>
 
   <!-- Servlet mapping for home page -->
   <servlet>
     <servlet-name>homeServlet</servlet-name>
-    <jsp-file>/index.jsp</jsp-file> <!-- This points to the JSP file for home -->
+    <jsp-file>/index.jsp</jsp-file>
   </servlet>
 
   <servlet-mapping>
     <servlet-name>homeServlet</servlet-name>
-    <url-pattern>/</url-pattern> <!-- You can change this to another pattern if needed -->
+    <url-pattern>/</url-pattern>
   </servlet-mapping>
 
-  <!-- Optional: Add servlet mapping for login and signup if needed -->
+
   <servlet>
     <servlet-name>loginServlet</servlet-name>
     <jsp-file>/login.jsp</jsp-file>

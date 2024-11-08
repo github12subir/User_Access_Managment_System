@@ -10,7 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-@WebServlet("/SoftwareServlet")  // Maps to "/SoftwareServlet" URL
+@WebServlet("/SoftwareServlet")
 public class SoftwareServlet extends javax.servlet.http.HttpServlet {
 
     @Override

@@ -10,11 +10,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-@WebServlet("/SignUpServlet")  // This annotation maps the URL to this servlet class
+@WebServlet("/SignUpServlet")
 
 public class SignUpServlet extends javax.servlet.http.HttpServlet{
 
-    // This method handles POST requests to the SignUpServlet
+
     @Override
     protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response)
             throws ServletException, IOException {
@@ -23,7 +23,7 @@ public class SignUpServlet extends javax.servlet.http.HttpServlet{
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-        // Hash the password using BCrypt
+        // Encrypt the password using BCrypt
         String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt(10));
 
         // Create a new User object
